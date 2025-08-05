@@ -1,62 +1,64 @@
+
 # ft_printf
 
 ## Introduction
 
-The `ft_printf` project is part of the 42 coding curriculum. The goal is to reimplement the standard C `printf` function, which formats and prints data. The function must support various format specifiers and be built using only allowed system functions. This project enhances your understanding of variadic functions, memory handling, string formatting, and output operations in C.
+The `ft_printf` project is about making your own version of the C `printf` function. This function is used to show text or numbers on the screen. You will need to support different types of format codes and only use allowed system functions. This project helps you understand how to work with multiple arguments, format text, manage memory, and print output.
 
 ---
 
 ## How It Works
 
-`ft_printf` takes a format string and a variable number of arguments. It scans the format string, detects format specifiers (e.g. `%d`, `%s`, `%x`), retrieves the corresponding arguments, and prints them accordingly using `write()`.
+`ft_printf` takes a special string (called the format string) and a list of values. It reads the format string, finds format codes like `%d` or `%s`, and replaces them with the right values using the `write()` function.
 
-### Basic Workflow
+### Steps
 
-1. Parse the format string character by character.
-2. When a `%` is found, identify the format specifier.
-3. Convert the corresponding argument to the required format.
-4. Print characters and formatted values to the standard output.
-5. Return the total number of characters printed.
-
----
-
-## Supported Format Specifiers
-
-- `%c` → character  
-- `%s` → string  
-- `%p` → pointer  
-- `%d` / `%i` → signed integer  
-- `%u` → unsigned integer  
-- `%x` / `%X` → hexadecimal (lower/upper case)  
-- `%%` → print a percent sign  
+1. Read the format string one character at a time.
+2. When you see `%`, check which type it is.
+3. Change the value into text.
+4. Print each character and value to the screen.
+5. Count and return the number of characters printed.
 
 ---
 
-## Project Requirements
+## Supported Format Codes
 
-- Function prototype:  
+* `%c` → character
+* `%s` → string
+* `%p` → pointer
+* `%d` / `%i` → signed number
+* `%u` → unsigned number
+* `%x` / `%X` → hexadecimal (lowercase / UPPERCASE)
+* `%%` → the percent sign itself
+
+---
+
+## Project Rules
+
+* Function header:
+
   ```c
   int ft_printf(const char *format, ...);
   ```
 
 ---
 
-## Key Concepts
+## Key Ideas
 
-1. **Variadic Functions**  
-   `ft_printf` uses the `<stdarg.h>` library to handle functions with a variable number of arguments.
+1. **Variadic Functions**
+   `ft_printf` uses `<stdarg.h>` to work with a flexible number of arguments.
 
-2. **Format String Parsing**  
-   The function must scan and analyze the format string in real-time to extract flags, width, and specifiers.
+2. **Format Parsing**
+   You must read and understand the format string while the program is running.
 
-3. **Number and String Conversion**  
-   Integers, hexadecimals, and pointers must be converted into printable strings manually.
+3. **Conversion to Strings**
+   Numbers and pointers need to be turned into strings before printing.
 
-4. **System Calls**  
-   All output is done via the `write()` system call, which prints to standard output.
+4. **System Calls**
+   Everything is printed using the `write()` function.
 
 ---
 
 ## Conclusion
 
-The `ft_printf` project is a great exercise in building a complex and commonly used function from scratch. It deepens your knowledge of C fundamentals, memory handling, and clean code practices — all while mimicking one of the most powerful standard library functions.
+This project helps you learn how to build a real and useful function using only simple tools in C. It improves your coding skills, teaches you how to handle text and numbers, and gives you better control over how your program shows output.
